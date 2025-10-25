@@ -1,112 +1,237 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Website Roleplay System | Khoer Udin</title>
+/* ========== GLOBAL THEME SETUP ========== */
+:root {
+  --accent-color: #0dcaf0;
+  --accent-hover: #00e0ff;
+  --bg-color: #0a0a0a;
+  --text-color: #f8f9fa;
+  --secondary-color: #b3b3b3;
+  --card-bg: #1a1a1a;
+  --transition: all 0.3s ease;
+}
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+[data-theme="light"] {
+  --accent-color: #007bff;
+  --accent-hover: #00a2ff;
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --secondary-color: #555;
+  --card-bg: #ffffff;
+}
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/style.css" />
-</head>
+/* ========== BASE STYLE ========== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background 0.4s, color 0.4s;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">KhoerUdin</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+/* ========== NAVBAR ========== */
+.navbar {
+  background: transparent;
+  padding: 15px 0;
+  transition: var(--transition);
+  z-index: 10;
+}
 
-  <!-- Hero Section -->
-  <section class="hero d-flex align-items-center text-center">
-    <div class="container reveal">
-      <h1 class="fw-bold">Website Roleplay System</h1>
-      <p class="text-muted">Proyek web interaktif dengan sistem manajemen Roleplay otomatis</p>
-      <a href="#detail" class="btn btn-custom mt-3">Lihat Detail</a>
-    </div>
-  </section>
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 10px 0;
+}
 
-  <!-- Project Detail Section -->
-  <section id="detail" class="py-5">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-md-6 reveal">
-          <img src="assets/project1.jpg" class="img-fluid rounded shadow" alt="Roleplay System" />
-        </div>
-        <div class="col-md-6 reveal">
-          <h2 class="section-title">Deskripsi Proyek</h2>
-          <p>
-            Website ini dibuat untuk mengelola sistem Roleplay berbasis komunitas game dengan fitur-fitur otomatisasi modern.
-            Menggunakan <strong>Node.js, Express.js</strong> dan <strong>MongoDB</strong> untuk backend serta antarmuka
-            modern berbasis <strong>Bootstrap</strong> dan <strong>Socket.io</strong> agar komunikasi berjalan real-time.
-          </p>
+.navbar-brand {
+  font-weight: 700;
+  color: var(--accent-color) !important;
+  letter-spacing: 0.5px;
+}
 
-          <h5 class="mt-4 text-accent">✨ Fitur Utama:</h5>
-          <ul>
-            <li>Manajemen Server Roleplay (pemain, fraksi, event)</li>
-            <li>Sistem notifikasi otomatis & real-time chat</li>
-            <li>Integrasi bot Discord untuk laporan & log event</li>
-            <li>Dashboard admin modern dengan statistik lengkap</li>
-          </ul>
+.navbar .nav-link {
+  color: var(--text-color);
+  font-weight: 500;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
 
-          <a href="#" class="btn btn-custom mt-3">Kunjungi Proyek</a>
-        </div>
-      </div>
-    </div>
-  </section>
+.navbar .nav-link:hover {
+  color: var(--accent-color);
+}
 
-  <!-- Gallery Section -->
-  <section class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="section-title">Tampilan Proyek</h2>
-      <div class="row g-4">
-        <div class="col-md-4 reveal">
-          <img src="assets/ss1.jpg" class="img-fluid rounded shadow" alt="Screenshot 1" />
-        </div>
-        <div class="col-md-4 reveal">
-          <img src="assets/ss2.jpg" class="img-fluid rounded shadow" alt="Screenshot 2" />
-        </div>
-        <div class="col-md-4 reveal">
-          <img src="assets/ss3.jpg" class="img-fluid rounded shadow" alt="Screenshot 3" />
-        </div>
-      </div>
-    </div>
-  </section>
+/* THEME TOGGLE */
+.theme-toggle {
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+  color: var(--accent-color);
+  cursor: pointer;
+  margin-left: 15px;
+  transition: transform 0.3s, color 0.3s;
+}
+.theme-toggle:hover {
+  transform: scale(1.2);
+  color: var(--accent-hover);
+}
 
-  <!-- Footer -->
-  <footer class="py-3 bg-dark text-light text-center">
-    <p class="mb-0">© 2025 Khoer Udin. All rights reserved.</p>
-  </footer>
+/* ========== HERO SECTION ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(135deg, var(--bg-color), var(--card-bg));
+  padding: 0 20px;
+  transition: background 0.4s;
+  animation: fadeIn 1.2s ease-out;
+}
 
-  <!-- Script -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Navbar Scroll Effect
-    window.addEventListener("scroll", function () {
-      document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
-    });
+.hero img {
+  animation: float 4s ease-in-out infinite;
+}
 
-    // Scroll Reveal Animation
-    const reveals = document.querySelectorAll(".reveal");
-    window.addEventListener("scroll", () => {
-      reveals.forEach((el) => {
-        const rect = el.getBoundingClientRect().top;
-        if (rect < window.innerHeight - 100) el.classList.add("active");
-      });
-    });
-  </script>
-</body>
-</html>
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  animation: slideDown 1s ease-out;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  animation: fadeInUp 1.5s ease-out;
+}
+
+/* ANIMATIONS */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ========== BUTTON ========== */
+.btn-custom {
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  border: none;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 500;
+  box-shadow: 0 0 10px var(--accent-color);
+  transition: var(--transition);
+}
+.btn-custom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--accent-hover);
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-color));
+}
+
+/* ========== SECTION TITLE ========== */
+.section-title {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  animation: fadeIn 1.2s ease;
+}
+
+/* ========== PROJECT CARD ========== */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 10px;
+  transition: var(--transition);
+  color: var(--text-color);
+  overflow: hidden;
+  animation: fadeIn 1s ease forwards;
+}
+.card img {
+  transition: transform 0.4s;
+}
+.card:hover img {
+  transform: scale(1.05);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+.card-title {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* ========== CONTACT FORM ========== */
+form input,
+form textarea {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 10px;
+  transition: var(--transition);
+}
+form input:focus,
+form textarea:focus {
+  background: var(--bg-color);
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 10px var(--accent-color);
+  outline: none;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--card-bg);
+  text-align: center;
+  padding: 20px 0;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  transition: background 0.4s;
+  animation: fadeIn 1s ease-out;
+}
+footer p {
+  margin: 0;
+}
+
+/* ========== SCROLL REVEAL ANIMATION ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .navbar-nav {
+    text-align: center;
+  }
+  .btn-custom {
+    width: 100%;
+  }
+}
