@@ -17,7 +17,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">My Portofolio</a>
+      <a class="navbar-brand fw-bold" href="#">My Portofolio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon text-light"></span>
       </button>
@@ -27,7 +27,7 @@
           <li class="nav-item"><a class="nav-link" href="#projects">Proyek</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
         </ul>
-        <button id="theme-toggle" class="theme-toggle ms-2" title="Ganti tema">
+        <button id="theme-toggle" class="theme-toggle ms-3" title="Ganti tema">
           🌙
         </button>
       </div>
@@ -35,8 +35,8 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container text-center">
+  <section class="hero text-center">
+    <div class="container">
       <img src="assets/profile.png" alt="Profile" class="rounded-circle mb-3" width="120">
       <h1>Halo, Saya Khoer 👋</h1>
       <p>Web Developer | Discord Bot Developer | Game Scripting Enthusiast</p>
@@ -57,46 +57,42 @@
     <div class="container">
       <h2 class="text-center section-title">Proyek Saya</h2>
       <div class="row g-4">
-        <!-- Proyek 1 -->
-        <div class="col-md-4">
+        <div class="col-md-4" >
           <div class="card border border-info h-100 shadow-sm">
             <div class="card-body">
               <h5 class="card-title text-info">Script Reconnect SA-MP</h5>
               <p>Script otomatis yang memungkinkan pemain terhubung kembali ke server setelah disconnect.</p>
-              <a href="#" class="btn btn-custom btn-sm">Lihat Detail</a>
+              <a href="reconnect.html" class="btn btn-custom btn-sm">Lihat Detail</a>
             </div>
           </div>
         </div>
 
-        <!-- Proyek 2 -->
-        <div class="col-md-4">
+        <div class="col-md-4" >
           <div class="card border border-info h-100 shadow-sm">
             <div class="card-body">
               <h5 class="card-title text-info">Webhook Discord</h5>
               <p>Sistem notifikasi otomatis dari website ke Discord menggunakan webhook dengan tampilan embed.</p>
-              <a href="#" class="btn btn-custom btn-sm">Lihat Detail</a>
+              <a href="webhook.html" class="btn btn-custom btn-sm">Lihat Detail</a>
             </div>
           </div>
         </div>
 
-        <!-- Proyek 3 -->
-        <div class="col-md-4">
+        <div class="col-md-4" >
           <div class="card border border-info h-100 shadow-sm">
             <div class="card-body">
               <h5 class="card-title text-info">Website Roleplay</h5>
               <p>Website interaktif untuk komunitas SA-MP Roleplay, dengan sistem login, forum, dan dashboard.</p>
-              <a href="#" class="btn btn-custom btn-sm">Lihat Detail</a>
+              <a href="roleplay.html" class="btn btn-custom btn-sm">Lihat Detail</a>
             </div>
           </div>
         </div>
 
-        <!-- Proyek 4 (Baru) -->
-        <div class="col-md-4">
+        <div class="col-md-4" >
           <div class="card border border-info h-100 shadow-sm">
             <div class="card-body">
               <h5 class="card-title text-info">Detail Portofolio</h5>
               <p>Halaman yang menampilkan rincian proyek lengkap, teknologi yang digunakan, dan dokumentasi hasil kerja.</p>
-              <a href="project-detail.html" class="btn btn-custom btn-sm">Lihat Detail</a>
+              <a href="detail.html" class="btn btn-custom btn-sm">Lihat Detail</a>
             </div>
           </div>
         </div>
@@ -124,7 +120,7 @@
     <p>© 2025 Khoer. Dibuat dengan ❤️ dan semangat belajar.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Navbar scroll effect
@@ -133,17 +129,25 @@
       navbar.classList.toggle("scrolled", window.scrollY > 50);
     });
 
-    // Theme toggle
-    const themeToggle = document.getElementById("theme-toggle");
+    // Theme toggle system
+    const toggle = document.getElementById("theme-toggle");
     const body = document.body;
-    themeToggle.addEventListener("click", () => {
-      const current = body.getAttribute("data-theme");
-      const next = current === "light" ? "dark" : "light";
-      body.setAttribute("data-theme", next);
-      themeToggle.textContent = next === "light" ? "🌞" : "🌙";
+    toggle.addEventListener("click", () => {
+      const theme = body.getAttribute("data-theme");
+      const newTheme = theme === "dark" ? "light" : "dark";
+      body.setAttribute("data-theme", newTheme);
+      toggle.textContent = newTheme === "dark" ? "🌙" : "🌞";
+      localStorage.setItem("theme", newTheme);
     });
 
-    // Scroll reveal animation
+    // Load theme from storage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      body.setAttribute("data-theme", savedTheme);
+      toggle.textContent = savedTheme === "dark" ? "🌙" : "🌞";
+    }
+
+    // Reveal animation
     const reveals = document.querySelectorAll(".reveal");
     window.addEventListener("scroll", () => {
       reveals.forEach((el) => {
