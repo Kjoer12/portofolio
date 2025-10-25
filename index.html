@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Khoer Udin | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portofolio</title>
 
-  <!-- Bootstrap 5 -->
+  <!-- Bootstrap & Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- AOS (Animate on Scroll) -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
-  <!-- SweetAlert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Local style -->
+  <!-- SweetAlert & EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/style.css">
 
-  <meta name="description" content="Portofolio Khoer Udin — Web Developer & Script Creator">
+  <script>
+    (function() {
+      emailjs.init("pkJDU_rCNIt0hTSLJ");
+    })();
+  </script>
 </head>
-<body data-theme="dark">
 
+<body data-theme="dark">
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Khoer Udin</a>
+      <a class="navbar-brand fw-bold" href="#">KhoerUdin</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navMenu">
         <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skill</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Proyek</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
-          <li class="nav-item"><button id="themeToggle" class="theme-toggle" title="Ganti Tema">🌙</button></li>
+          <li><a class="nav-link" href="#about">Tentang</a></li>
+          <li><a class="nav-link" href="#skills">Skill</a></li>
+          <li><a class="nav-link" href="#projects">Proyek</a></li>
+          <li><a class="nav-link" href="#contact">Kontak</a></li>
+          <li><button id="themeToggle" class="theme-toggle">🌙</button></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="home" data-aos="fade-up">
+  <section class="hero d-flex align-items-center text-center">
     <div class="container">
-      <h1>Hai, Saya <span class="text-info">Khoer Udin</span></h1>
+      <h1 class="fw-bold">Hai, Saya <span class="text-info">Khoerudin</span></h1>
       <p class="lead">
         <span class="typed-text"></span><span class="cursor"></span>
       </p>
@@ -55,56 +55,57 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="py-5" data-aos="fade-right">
-    <div class="container text-center">
-      <h2 class="section-title mb-3">Tentang Saya</h2>
-      <p>Saya pengembang web dan pembuat script SA-MP / Discord. Fokus pada tampilan modern, efisien, dan mobile friendly.</p>
+  <section id="about" class="py-5 text-center">
+    <div class="container">
+      <h2 class="section-title mb-4">Tentang Saya</h2>
+      <p class="text-muted">
+        Saya adalah pengembang web dan pembuat script SA-MP/Discord yang fokus pada tampilan modern, cepat, dan efisien.
+        Saya senang membangun sistem otomatis seperti bot, panel admin, dan integrasi Discord.
+      </p>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="py-5 bg-dark" data-aos="fade-left">
-    <div class="container text-center">
+  <section id="skills" class="py-5 bg-dark text-center text-light">
+    <div class="container">
       <h2 class="section-title mb-4">Skill</h2>
-      <div class="row g-4">
-        <div class="col-md-3"><div class="p-3 bg-dark rounded">HTML & CSS</div></div>
-        <div class="col-md-3"><div class="p-3 bg-dark rounded">JavaScript</div></div>
-        <div class="col-md-3"><div class="p-3 bg-dark rounded">Lua & MonetLoader</div></div>
-        <div class="col-md-3"><div class="p-3 bg-dark rounded">Node.js</div></div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-3"><div class="skill-box p-3 rounded shadow-sm">HTML & CSS</div></div>
+        <div class="col-md-3"><div class="skill-box p-3 rounded shadow-sm">JavaScript</div></div>
+        <div class="col-md-3"><div class="skill-box p-3 rounded shadow-sm">Lua & MonetLoader</div></div>
+        <div class="col-md-3"><div class="skill-box p-3 rounded shadow-sm">Node.js</div></div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="py-5" data-aos="fade-up">
-    <div class="container text-center">
+  <section id="projects" class="py-5 text-center">
+    <div class="container">
       <h2 class="section-title mb-4">Proyek Saya</h2>
       <div class="row g-4">
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="50">
-          <div class="card border border-info">
+        <div class="col-md-4">
+          <div class="card border border-info h-100 shadow-sm">
             <div class="card-body">
               <h5 class="card-title text-info">Script Reconnect SA-MP</h5>
-              <p class="card-text">Script Lua agar bisa reconnect otomatis tanpa /quit.</p>
+              <p>Script Lua agar bisa reconnect otomatis tanpa /quit.</p>
               <a href="project-reconnect.html" class="btn btn-custom btn-sm">Lihat Detail</a>
             </div>
           </div>
         </div>
-
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="120">
-          <div class="card border border-info">
+        <div class="col-md-4">
+          <div class="card border border-info h-100 shadow-sm">
             <div class="card-body">
               <h5 class="card-title text-info">Webhook Discord</h5>
-              <p class="card-text">Integrasi SA-MP ke Discord untuk log real-time.</p>
+              <p>Integrasi SA-MP ke Discord untuk log real-time dan notifikasi otomatis.</p>
               <a href="project-webhook.html" class="btn btn-custom btn-sm">Lihat Detail</a>
             </div>
           </div>
         </div>
-
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="190">
-          <div class="card border border-info">
+        <div class="col-md-4">
+          <div class="card border border-info h-100 shadow-sm">
             <div class="card-body">
               <h5 class="card-title text-info">Website Roleplay</h5>
-              <p class="card-text">Website komunitas Roleplay dengan panel admin.</p>
+              <p>Website komunitas Roleplay dengan panel admin dan sistem registrasi.</p>
               <a href="project-roleplay.html" class="btn btn-custom btn-sm">Lihat Detail</a>
             </div>
           </div>
@@ -114,176 +115,97 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-5" data-aos="fade-up">
+  <section id="contact" class="py-5 text-center">
     <div class="container">
-      <h2 class="section-title text-center mb-4">Kontak</h2>
+      <h2 class="section-title mb-4">Kontak Saya</h2>
+      <p class="mb-4">Hubungi saya langsung melalui form di bawah ini:</p>
 
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <form id="contactForm">
-            <div class="mb-3">
-              <label class="form-label">Nama</label>
-              <input type="text" class="form-control" name="from_name" placeholder="Nama kamu" required>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-control" name="reply_to" placeholder="Email kamu" required>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Pesan</label>
-              <textarea class="form-control" name="message" rows="5" placeholder="Tulis pesan..." required></textarea>
-            </div>
-
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-custom">Kirim Pesan</button>
-            </div>
-          </form>
-
-          <p class="text-center mt-3" style="color:var(--secondary-color);">atau email langsung: <a href="mailto:khowerudin107@gmail.com">khowerudin107@gmail.com</a></p>
+      <form id="contact-form" class="mx-auto" style="max-width: 500px;">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="name" placeholder="Nama kamu" required>
         </div>
-      </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" id="email" placeholder="Email aktif" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" id="message" rows="4" placeholder="Pesan kamu..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-custom w-100">Kirim Pesan</button>
+      </form>
     </div>
   </section>
 
-  <!-- SCROLL TOP BUTTON -->
-  <button id="scrollTop" title="Ke atas">↑</button>
-
-  <footer>
-    <p>© 2025 Khoer Udin. Dibuat dengan ❤️ dan Bootstrap 5.</p>
+  <!-- FOOTER -->
+  <footer class="text-center py-3">
+    <p>© 2025 Khoer Udin. Dibuat dengan ❤️ menggunakan Bootstrap 5.</p>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- AOS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-  <!-- EmailJS (CDN) -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
   <script>
-    // ===============================
-    // CONFIG: Ganti placeholder ini
-    // ===============================
-    const EMAILJS_USER_ID = "YOUR_EMAILJS_USER_ID";       // <- ganti ini (public key)
-    const EMAILJS_SERVICE_ID = "YOUR_EMAILJS_SERVICE_ID"; // <- ganti ini (service_xxx)
-    const EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID"; // <- ganti ini (template_xxx)
-    // NOTE: di template EmailJS, atur agar pesan dikirim ke khowerudin107@gmail.com
-
-    // init EmailJS
-    (function(){
-      if (window.emailjs) {
-        emailjs.init(EMAILJS_USER_ID);
-      } else {
-        console.warn("EmailJS belum dimuat.");
-      }
-    })();
-
-    // ===== AOS init =====
-    AOS.init({ once: true, duration: 700 });
-
-    // ===== Typing effect =====
+    // ========== Typing Effect ==========
     const texts = ["Web Developer 💻", "Script Creator 🧠", "Discord Bot Maker 🤖"];
     let i = 0, j = 0;
     const typed = document.querySelector(".typed-text"), cursor = document.querySelector(".cursor");
-    function type(){ if (j < texts[i].length) { typed.textContent += texts[i][j++]; setTimeout(type, 90); } else setTimeout(erase,1500); }
-    function erase(){ if (j > 0){ typed.textContent = texts[i].substring(0, --j); setTimeout(erase,50); } else { i = (i+1) % texts.length; setTimeout(type,500); } }
-    document.addEventListener("DOMContentLoaded", () => setTimeout(type, 800));
 
-    // ===== Navbar scroll effect =====
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('.navbar');
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-
-      // scrollTop button
-      const st = document.getElementById('scrollTop');
-      if(window.scrollY > 300) st.style.display = 'block'; else st.style.display = 'none';
-    });
-
-    // ===== Scroll to top =====
-    document.getElementById('scrollTop').addEventListener('click', () => {
-      window.scrollTo({ top:0, behavior:'smooth' });
-    });
-
-    // ===== Theme: auto based on system/time + toggle =====
-    const body = document.body;
-    const toggle = document.getElementById('themeToggle');
-
-    // automatic: prefer-color-scheme OR time-based fallback
-    function applyInitialTheme(){
-      const saved = localStorage.getItem('site-theme');
-      if(saved){
-        body.setAttribute('data-theme', saved);
-        toggle.textContent = saved === 'dark' ? '🌙' : '☀️';
-        return;
-      }
-
-      // prefer system
-      if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches){
-        body.setAttribute('data-theme','light'); toggle.textContent = '☀️';
-        return;
-      }
-
-      // fallback: set light during 07:00-18:59 else dark
-      const h = new Date().getHours();
-      if(h >= 7 && h < 19){ body.setAttribute('data-theme','light'); toggle.textContent = '☀️'; }
-      else { body.setAttribute('data-theme','dark'); toggle.textContent = '🌙'; }
+    function type() {
+      if (j < texts[i].length) {
+        typed.textContent += texts[i][j++];
+        setTimeout(type, 100);
+      } else setTimeout(erase, 1500);
     }
-    applyInitialTheme();
+    function erase() {
+      if (j > 0) {
+        typed.textContent = texts[i].substring(0, --j);
+        setTimeout(erase, 50);
+      } else {
+        i = (i + 1) % texts.length;
+        setTimeout(type, 500);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", () => setTimeout(type, 1000));
 
-    toggle.addEventListener('click', () => {
-      const current = body.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', next);
-      localStorage.setItem('site-theme', next);
-      toggle.textContent = next === 'dark' ? '🌙' : '☀️';
+    // ========== Navbar Scroll ==========
+    window.addEventListener("scroll", () => {
+      const nav = document.querySelector(".navbar");
+      nav.classList.toggle("scrolled", window.scrollY > 50);
     });
 
-    // ===== Contact form submit (EmailJS) =====
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(e){
+    // ========== Theme Toggle ==========
+    const toggle = document.getElementById("themeToggle");
+    const body = document.body;
+    toggle.addEventListener("click", () => {
+      const isDark = body.getAttribute("data-theme") === "dark";
+      body.setAttribute("data-theme", isDark ? "light" : "dark");
+      toggle.textContent = isDark ? "☀️" : "🌙";
+    });
+
+    // ========== EmailJS Contact Form ==========
+    document.getElementById("contact-form").addEventListener("submit", (e) => {
       e.preventDefault();
+      const params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      };
 
-      // basic validation
-      const form = this;
-      const name = form.from_name.value.trim();
-      const reply_to = form.reply_to.value.trim();
-      const message = form.message.value.trim();
-      if(!name || !reply_to || !message){
-        Swal.fire({ icon:'warning', title:'Lengkapi form', text:'Isi nama, email, dan pesan terlebih dahulu.'});
-        return;
-      }
-
-      // If placeholders not replaced, show helpful message
-      if(EMAILJS_USER_ID.startsWith("YOUR_") || EMAILJS_SERVICE_ID.startsWith("YOUR_") || EMAILJS_TEMPLATE_ID.startsWith("YOUR_")){
-        Swal.fire({
-          icon: 'info',
-          title: 'Setup EmailJS',
-          html: 'Sebelum bisa mengirim, ganti <b>EMAILJS_USER_ID</b>, <b>SERVICE_ID</b>, dan <b>TEMPLATE_ID</b> di file ini. <br>Ikuti instruksi di dokumentasi EmailJS (lihat panduan di bawah).'
+      emailjs.send("service_brcka3g", "template_3n9nj2b", params)
+        .then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Pesan Terkirim!",
+            text: "Pesan kamu berhasil dikirim ke Khoer 👌",
+          });
+          document.getElementById("contact-form").reset();
+        })
+        .catch(() => {
+          Swal.fire({
+            icon: "error",
+            title: "Gagal Mengirim!",
+            text: "Terjadi kesalahan, coba lagi nanti.",
+          });
         });
-        return;
-      }
-
-      // show loading
-      Swal.fire({ title: 'Mengirim...', allowOutsideClick:false, didOpen: () => Swal.showLoading() });
-
-      // send via emailjs
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        from_name: name,
-        reply_to: reply_to,
-        message: message,
-        // optional: you can add a fixed to_email but better set recipient in template config
-        to_email: "khowerudin107@gmail.com"
-      })
-      .then(() => {
-        Swal.fire({ icon:'success', title:'Terkirim!', text:'Pesan kamu sudah dikirim. Terima kasih.'});
-        form.reset();
-      }, (err) => {
-        console.error(err);
-        Swal.fire({ icon:'error', title:'Gagal mengirim', text:'Terjadi kesalahan. Cek konfigurasi EmailJS atau koneksi internet.'});
-      });
     });
   </script>
 </body>
